@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  #before_action :set_user, only: [:edit, :update]
+  
   def new
   end
   
@@ -18,4 +20,9 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_path
   end
+  
+  def edit
+  end
+  
+  
 end
