@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  #before_action :set_user, only: [:edit, :update]
   
   def new
   end
@@ -22,6 +21,7 @@ class SessionsController < ApplicationController
   end
   
   def edit
+    @user = User.find_by(email: params[:email])
   end
   
   
