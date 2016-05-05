@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :correct_user, only: [:edit, :update]
   
   def show
     @user = User.find(params[:id])
@@ -19,7 +20,10 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = User.find(params[:id])
+    if @user = User.find(params[:id])
+    else
+      render 'static_pages/home'
+    end
   end
   
   def update
@@ -36,6 +40,6 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :location, :comment)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation )
   end
 end

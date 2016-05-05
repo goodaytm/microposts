@@ -20,6 +20,7 @@
                   <%= @user.comment %>
                 </td>
               </tr>
+              <% if @user == current_user %>
               <tr>
                 <td>location:</td>
                   <td>
@@ -32,6 +33,7 @@
                   <%= @user.email %>
                 </td>
               </tr>
+              <% end %>
             </tbody>
           </table>
         </div>
