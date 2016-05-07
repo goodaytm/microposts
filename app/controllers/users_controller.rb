@@ -20,11 +20,8 @@ class UsersController < ApplicationController
   end
   
   def edit
-    if @user = User.find(params[:id])
-    else
-      render 'static_pages/home'
+   @user = User.find(params[:id])
     end
-  end
   
   def update
     @user = User.find(params[:id])

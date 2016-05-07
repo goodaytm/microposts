@@ -15,7 +15,10 @@ class ApplicationController < ActionController::Base
   
   def correct_user
    @user = User.find(params[:id])
-   redirect_to(root_url) unless @user == current_user
+   if @user != current_user
+       flash[:info] = "Invalid access!! "
+       redirect_to(root_url)
+   end
   end
   
 end
